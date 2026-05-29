@@ -15,7 +15,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 
 // Register handlebars partials (https://www.nmjs.com/package/habs)
-handlebars.registerPartials(__dirname, + '/app_server/views/partials');
+handlebars.registerPartials(__dirname + '/app_server/views/partials');
 
 app.set('view engine', 'hbs');
 
