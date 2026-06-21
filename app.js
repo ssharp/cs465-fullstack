@@ -35,12 +35,32 @@ handlebars.registerPartials(__dirname + '/app_server/views/partials');
 
 app.set('view engine', 'hbs');
 
+// Enable CORS for API routes
+app.use('/api', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+
+  next();
+});
+
+app.use('/api', (req, res, next) => {
+  res.set('Cache-Control', 'no-store');
+  next();
+});
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.use('/api', apiRouter);
 
 // wire-up routes to controllers
 app.use('/', indexRouter);
@@ -51,7 +71,6 @@ app.use('/contact', contactRouter);
 app.use('/rooms', roomsRouter);
 app.use('/meals', mealsRouter);
 app.use('/news', newsRouter);
-app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
