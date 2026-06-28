@@ -4,6 +4,7 @@ import { TripCard } from '../trip-card/trip-card';
 import { trips } from '../data/trips'
 import { Trip } from '../models/trip';
 import { TripData } from '../services/trip-data';
+import { AuthenticationService } from '../services/authentication';
 
 import { Router } from '@angular/router';
 
@@ -20,7 +21,8 @@ export class TripListing implements OnInit {
 
   constructor(
     private tripData: TripData,
-    private router: Router
+    private router: Router,
+    private authService: AuthenticationService
     ) {
     console.log('TripListing.constructor()');
   }
@@ -53,4 +55,10 @@ export class TripListing implements OnInit {
     console.log('ngOnInit');
     this.getStuff();
   }
+
+  public isLoggedIn()
+  {
+    return this.authService.isLoggedIn();
+  }
+
 }
