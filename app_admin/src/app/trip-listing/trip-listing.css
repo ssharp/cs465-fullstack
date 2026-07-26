@@ -1,0 +1,40 @@
+/* Add Trip button container */
+.add-trip-container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Add Trip button */
+.btn-info {
+  padding: 10px 18px;
+  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  margin: 20px 0 40px 0; /* top | right | bottom | left */
+  transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+.btn-info:hover {
+  background-color: #0b8bd7;
+  transform: translateY(-2px);
+}
+
+/* Row spacing */
+.trip-row {
+  margin-top: 20px;
+  row-gap: 30px; /* vertical spacing between rows */
+}
+
+/* Column spacing + wide layout */
+.trip-column {
+  padding: 0 15px; /* horizontal spacing */
+}
+
+/* Make cards wide and centered */
+.trip-card {
+  width: 100%;
+  max-width: 420px; /* wide cards */
+  margin: 0 auto;   /* center inside column */
+}
+

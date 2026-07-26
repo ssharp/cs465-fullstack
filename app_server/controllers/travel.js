@@ -23,7 +23,7 @@ const travel = async function (req, res, next) {
         }
       }
       // console.log(json);
-      res.render('travel', { title: 'Travlr Getaways', trips: json, message });
+      res.render('travel', { title: 'Travlr Getaways', trips: json, message, currentPage: 'travel' });
     })
     .catch((err) => res.status(500).send(err.message));
 };

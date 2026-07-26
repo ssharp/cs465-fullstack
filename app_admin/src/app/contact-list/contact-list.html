@@ -1,0 +1,42 @@
+<div *ngIf="!isLoggedIn()" class="container">
+  <h3>You must log in to view the messages.</h3>
+</div>
+
+<div *ngIf="isLoggedIn()" class="container">
+  <h2>Contact Messages</h2>
+
+  <input 
+    type="text" 
+    placeholder="Search messages..." 
+    [(ngModel)]="searchTerm"
+    (input)="search()"
+    class="search-box"
+  />
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Tag</th>
+        <th>Message</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let msg of filteredMessages">
+        <td>{{ msg.name }}</td>
+        <td>{{ msg.email }}</td>
+        <td>{{ msg.tag }}</td>
+        <td>{{ msg.message }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="delete(msg._id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

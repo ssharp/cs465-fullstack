@@ -1,0 +1,79 @@
+/* Card container */
+.card {
+  border: none;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: #ffffff;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 28px rgba(0,0,0,0.12);
+}
+
+/* Card header */
+.card-header {
+  background: #cfe2f3;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 16px;
+  color: #333;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Trip image */
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.03);
+}
+
+/* Card body */
+.card-body {
+  padding: 20px;
+}
+
+/* Resort name */
+.card-subtitle {
+  font-size: 0.95rem;
+  color: #6c757d;
+}
+
+/* Length + price */
+.card-subtitle.mt-3 {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Description text */
+.card-text {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.card {
+    margin-bottom: 40px;
+}
+
+/* Edit button */
+.btn-info {
+  margin-top: 12px;
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: 500;
+  transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+.btn-info:hover {
+  background-color: #0b8bd7;
+  transform: translateY(-2px);
+}

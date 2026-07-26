@@ -43,7 +43,7 @@ const tripAddTrip = async (req, res) => {
     const newTrip = new Trip({
       code: req.body.code,
       name: req.body.name,
-      length: Number(req.body.length),
+      length: req.body.length,
       start: req.body.start,
       resort: req.body.resort,
       perPerson: Number(req.body.perPerson),
@@ -65,8 +65,8 @@ const tripAddTrip = async (req, res) => {
 // and JSON message to the requesting client
 const tripUpdateTrip = async (req, res) => {
     // Uncomment for debugging
-    console.log(req.params);
-    console.log(req.body);
+    // console.log(req.params);
+    // console.log(req.body);
 
     const q = await Model
         .findOneAndUpdate(
@@ -75,7 +75,7 @@ const tripUpdateTrip = async (req, res) => {
             {
                 code: req.body.code,
                 name: req.body.name,
-                length: Number(req.body.length),
+                length: req.body.length,
                 start: req.body.start,
                 resort: req.body.resort,
                 perPerson: req.body.perPerson,

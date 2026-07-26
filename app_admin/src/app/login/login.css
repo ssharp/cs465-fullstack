@@ -1,0 +1,79 @@
+/* Container spacing */
+.row {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+/* Card-style form wrapper */
+.col-12.col-md-8 {
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.col-12.col-md-8:hover {
+  box-shadow: 0 6px 28px rgba(0,0,0,0.12);
+}
+
+/* Heading */
+h2 {
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #333;
+  text-align: center;
+}
+
+/* Labels */
+label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+/* Inputs */
+input.form-control {
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+input.form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(13,110,253,0.15);
+}
+
+/* Error alert */
+.alert-danger {
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 20px;
+}
+
+/* Submit button */
+button.btn-primary {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  margin-top: 15px;
+  transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+button.btn-primary:hover {
+  background-color: #0b5ed7;
+  transform: translateY(-2px);
+}
+
+button.btn-primary:disabled {
+  background-color: #9bbcf0;
+  cursor: not-allowed;
+}
+
+/* Smooth form spacing */
+.form-group {
+  margin-bottom: 20px;
+}

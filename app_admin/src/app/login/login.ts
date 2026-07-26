@@ -34,8 +34,7 @@ export class Login implements OnInit {
     this.formError = '';
 
     if (!this.credentials.email ||
-        !this.credentials.password ||
-        !this.credentials.name) {
+        !this.credentials.password) {
 
       this.formError = 'All fields are required, please try again';
       this.router.navigateByUrl('#');   // Return to login page
@@ -51,16 +50,17 @@ export class Login implements OnInit {
       email: this.credentials.email
     } as User;
 
-    this.authenticationService.login(newUser, this.credentials.password);
+    this.authenticationService.login(newUser, this.credentials.password)
+      .subscribe({
+        next: (value: any) => {
+          this.authenticationService.saveToken(value.token);
 
-    if (this.authenticationService.isLoggedIn()) {
-      this.router.navigate(['']);
-    } else {
-      setTimeout(() => {
-        if (this.authenticationService.isLoggedIn()) {
-          this.router.navigate(['']);
+          // Redirect to trips page
+          this.router.navigateByUrl('');
+        },
+        error: () => {
+          this.formError = 'Login failed. Please try again.';
         }
-      }, 3000);
-    }
+      });
   }
 }

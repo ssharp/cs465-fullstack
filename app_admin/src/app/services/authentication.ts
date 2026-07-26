@@ -43,35 +43,11 @@ export class AuthenticationService {
     return { email, name } as User;
   }
 
-  public login(user: User, passwd: string): void {
-    this.tripData.login(user, passwd)
-      .subscribe({
-        next: (value: any) => {
-          if (value) {
-            console.log(value);
-            this.authResp = value;
-            this.saveToken(this.authResp.token);
-          }
-        },
-        error: (error: any) => {
-          console.log('Error: ' + error);
-        }
-      });
+  public login(user: User, passwd: string) {
+    return this.tripData.login(user, passwd);
   }
 
-  public register(user: User, passwd: string): void {
-    this.tripData.register(user, passwd)
-      .subscribe({
-        next: (value: any) => {
-          if (value) {
-            console.log(value);
-            this.authResp = value;
-            this.saveToken(this.authResp.token);
-          }
-        },
-        error: (error: any) => {
-          console.log('Error: ' + error);
-        }
-      });
+  public register(user: User, passwd: string) {
+    return this.tripData.register(user, passwd);
   }
 }

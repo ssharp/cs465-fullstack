@@ -19,22 +19,22 @@
 							<a href="index.html">Home</a>
 						</li>
 						<li>
-							<a href="travel.html">Travel</a>
+							<a href="travel">Travel</a>
 						</li>
 						<li>
-							<a href="rooms.html">Rooms</a>
+							<a href="rooms">Rooms</a>
 						</li>
 						<li>
-							<a href="meals.html">Meals</a>
+							<a href="meals">Meals</a>
 						</li>
 						<li>
-							<a href="news.html">News</a>
+							<a href="news">News</a>
 						</li>
 						<li>
-							<a href="about.html">About</a>
+							<a href="about">About</a>
 						</li>
 						<li class="selected">
-							<a href="contact.html">Contact</a>
+							<a href="contact">Contact</a>
 						</li>
 					</ul>
 				</div>
@@ -44,21 +44,21 @@
 					<div>
 						<div id="contact" class="body">
 							<h1>Contact</h1>
-							<form action="index.html" method="post">
+							<form action="http://localhost:3000/api/contact" method="post">
 								<table>
 									<tbody>
 										<tr>
 											<td>Name:</td>
-											<td><input type="text" value="" class="txtfield"></td>
+											<td><input type="text" name="name" class="txtfield"></td>
 										</tr> <tr>
 											<td>Email:</td>
-											<td><input type="text" value="" class="txtfield"></td>
+											<td><input type="text" name="email" class="txtfield" formControlName="email"></td>
 										</tr> <tr>
-											<td>Subject:</td>
-											<td><input type="text" value="" class="txtfield"></td>
+											<td>Tag:</td>
+											<td><input type="text" name="tag" class="txtfield" style="text-transform: uppercase;"></td>
 										</tr> <tr>
 											<td class="txtarea">Message:</td>
-											<td><textarea></textarea></td>
+											<td><textarea name="message"></textarea></td>
 										</tr> <tr>
 											<td></td>
 											<td><input type="submit" value="" class="btn"></td>
@@ -71,10 +71,10 @@
 								<span>Address:</span> 123 Lorem Ipsum Cove, Sed Ut City, LI 12345
 							</p>
 							<p>
-								<span>Telephone Number:</span> 1-800-999-9999
+								<span>Tags:</span> BUGS, FAQS, SUPPORT, LEGAL
 							</p>
 							<p>
-								<span>Fax Number:</span> 1-800-111-1111
+								<span>Phone Number:</span> 1-800-999-9999
 							</p>
 						</div>
 					</div>
@@ -88,22 +88,22 @@
 						<a href="index.html">Home</a>
 					</li>
 					<li>
-						<a href="travel.html">Travel</a>
+						<a href="travel">Travel</a>
 					</li>
 					<li>
-						<a href="rooms.html">Rooms</a>
+						<a href="rooms">Rooms</a>
 					</li>
 					<li>
-						<a href="meals.html">Meals</a>
+						<a href="meals">Meals</a>
 					</li>
 					<li>
-						<a href="news.html">News</a>
+						<a href="news">News</a>
 					</li>
 					<li>
-						<a href="about.html">About</a>
+						<a href="about">About</a>
 					</li>
 					<li class="active">
-						<a href="contact.html">Contact</a>
+						<a href="contact">Contact</a>
 					</li>
 				</ul>
 				<div id="connect">

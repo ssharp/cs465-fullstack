@@ -26,6 +26,19 @@ export class EditTrip implements OnInit {
     private tripData: TripData
   ) {}
 
+  // -----------------------------
+  // DATE FORMAT HELPERS
+  // -----------------------------
+  private toDateInputValue(iso: string): string {
+    // Converts "yyyy-MM-ddT08:00:00.000+00:00" → "yyyy-MM-dd"
+    return iso.split('T')[0];
+  }
+
+  private toIsoTimestamp(date: string): string {
+    // Converts "yyyy-MM-dd" → "yyyy-MM-ddT08:00:00.000+00:00"
+    return `${date}T08:00:00.000+00:00`;
+  }
+
   ngOnInit(): void {
     // Retrieve stashed trip ID
     this.tripCode = localStorage.getItem("tripCode") || '';
@@ -53,21 +66,23 @@ export class EditTrip implements OnInit {
       .subscribe({
         next: (value: any) => {
           this.trip = value;
-          // Populate our record into the form
-          this.editForm.patchValue(value);
-          if (!value)
-          {
-            this.message = 'No Trip Retrieved!'
-          }
-          else {
-            this.message = 'Trip: ' + this.tripCode + ' retrieved';
-          }
+
+          // Patch values, but convert the ISO timestamp for the date input
+          this.editForm.patchValue({
+            ...value,
+            start: this.toDateInputValue(value.start)
+          });
+
+          this.message = value
+            ? `Trip: ${this.tripCode} retrieved`
+            : 'No Trip Retrieved!';
+
           console.log(this.message);
         },
         error: (error: any) => {
           console.log('Error: ' + error);
         }
-      })
+      });
   }
 
   onSubmit()
@@ -75,16 +90,24 @@ export class EditTrip implements OnInit {
     this.submitted = true;
 
     if (this.editForm.valid) {
-      this.tripData.updateTrip(this.tripCode, this.editForm.value)
-      .subscribe({
-        next: (value: any) => {
-          console.log(value);
-          this.router.navigate(['']);
-        },
-        error: (error: any) => {
-          console.log('Error: ' + error)
-        }
-      })
+      const formValue = this.editForm.value;
+
+      // Convert date back to full ISO timestamp before sending to API
+      const payload = {
+        ...formValue,
+        start: this.toIsoTimestamp(formValue.start)
+      };
+
+      this.tripData.updateTrip(this.tripCode, payload)
+        .subscribe({
+          next: (value: any) => {
+            console.log(value);
+            this.router.navigateByUrl('');
+          },
+          error: (error: any) => {
+            console.log('Error: ' + error);
+          }
+        });
     }
   }
   // get the form short name to access the form fields

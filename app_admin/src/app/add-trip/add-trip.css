@@ -1,0 +1,120 @@
+/* ------------------------------
+   Page Layout
+------------------------------ */
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ------------------------------
+   Form Labels
+------------------------------ */
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+  color: #333;
+}
+
+/* ------------------------------
+   Inputs
+------------------------------ */
+.form-control {
+  border-radius: 6px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.15);
+}
+
+/* ------------------------------
+   Validation
+------------------------------ */
+.is-invalid {
+  border-color: #dc3545 !important;
+}
+
+.invalid-feedback {
+  font-size: 0.85rem;
+  color: #dc3545;
+  margin-top: 4px;
+}
+
+/* ------------------------------
+   Buttons
+------------------------------ */
+button.btn-primary,
+button.btn-info {
+  padding: 10px 18px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button.btn-primary:hover,
+button.btn-info:hover {
+  transform: translateY(-1px);
+}
+
+button.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+button.btn-primary:hover {
+  background-color: #0069d9;
+}
+
+button.btn-info {
+  background-color: #008cffe1;
+  border: none;
+}
+
+button.btn-info:hover {
+  background-color: #60b6fc;
+}
+
+/* ------------------------------
+   Page Title
+------------------------------ */
+.page-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #222;
+}
+
+/* ------------------------------
+   Spacing
+------------------------------ */
+.form-group {
+  margin-bottom: 20px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* ------------------------------
+   Success / Message Banner
+------------------------------ */
+.message-banner {
+  background: #e9f7ef;
+  border-left: 4px solid #28a745;
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  color: #155724;
+  font-size: 0.95rem;
+}

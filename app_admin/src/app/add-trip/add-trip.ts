@@ -21,6 +21,14 @@ export class AddTrip implements OnInit {
     private router: Router
   ) { }
 
+  // -----------------------------
+  // DATE FORMAT HELPER
+  // -----------------------------
+  private toIsoTimestamp(date: string): string {
+    // Converts "yyyy-MM-dd" → "yyyy-MM-ddT08:00:00.000+00:00"
+    return `${date}T08:00:00.000+00:00`;
+  }
+
   ngOnInit() {
     this.addForm = this.formBuilder.group({
       code: ['', Validators.required],
@@ -39,19 +47,25 @@ export class AddTrip implements OnInit {
     this.submitted = true;
 
     if (this.addForm.valid) {
-      const trip = { ...this.addForm.value };
+
+      // Convert date to full ISO timestamp before sending
+      const trip = {
+        ...this.addForm.value,
+        start: this.toIsoTimestamp(this.addForm.value.start)
+      };
 
       delete trip.id;
-      
-      this.tripService.addTrip(this.addForm.value)
-        .subscribe( {
+
+      this.tripService.addTrip(trip)
+        .subscribe({
           next: (data: any) => {
             console.log(data);
-            this.router.navigate(['']);
+            this.router.navigateByUrl('');
           },
           error: (error: any) => {
             console.error('Error: ' + error);
-        }});
+          }
+        });
     }
   }
   // get the form short name to access form fields
